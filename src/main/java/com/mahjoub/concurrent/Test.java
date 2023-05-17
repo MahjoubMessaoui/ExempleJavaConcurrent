@@ -17,11 +17,13 @@ public class Test {
 	public static void main(String[] args) throws InterruptedException {
 
 		
-		
+	/*
+	* ExecutorService consiste à utiliser l'une des méthode de fabrique de la classe Executor
+    */
 		
 		ExecutorService service = Executors.newFixedThreadPool(10);
-		for (int i = 0; i < 1000; i++)
-			service.submit(() -> counter.incrementAndGet());
+		for (int i = 0; i < 1000; i++) 
+		service.submit(() -> counter.incrementAndGet());
 		service.shutdown();
 		//Un bon moyen d'arrêter ExecutorService 
 		service.awaitTermination(10, TimeUnit.SECONDS);

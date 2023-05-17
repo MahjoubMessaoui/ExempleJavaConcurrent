@@ -14,6 +14,12 @@ public class App {
 
 	public static void main(String[] args) throws InterruptedException {
 
+		/*
+		 * ExecutorService consiste à utiliser l'une des méthodes de fabrique de la classe Executors .
+		 * Création d'un pool de thread avec 10 thread
+		 */
+		
+		
 		ExecutorService service = Executors.newFixedThreadPool(10);
 		for (int i = 0; i < 1000; i++)
 			
