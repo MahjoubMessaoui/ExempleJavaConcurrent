@@ -23,6 +23,7 @@ public class Test {
 		for (int i = 0; i < 1000; i++)
 			service.submit(() -> counter.incrementAndGet());
 		service.shutdown();
+		//Un bon moyen d'arrêter ExecutorService 
 		service.awaitTermination(10, TimeUnit.SECONDS);
 		if (service.isShutdown())
 			System.out.printf("Total count: %d", counter.get());

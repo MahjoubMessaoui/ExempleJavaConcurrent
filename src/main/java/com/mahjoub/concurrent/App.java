@@ -16,8 +16,18 @@ public class App {
 
 		ExecutorService service = Executors.newFixedThreadPool(10);
 		for (int i = 0; i < 1000; i++)
-			service.submit(() -> ++counter);
+			
+	/*
+	 * submit() et invokeAll() renvoient un objet ou une collection d'objets de type Future ,
+	 *  ce qui nous permet d'obtenir le résultat de l'exécution d'une tâche ou de vérifier
+	 *   l'état de la tâche (est-elle en cours d'exécution).
+	 */
+		service.submit(() -> ++counter);
 		service.shutdown();
+		
+		/*
+		 * Un bon moyen d'arrêter ExecutorService 
+		 */
 		service.awaitTermination(10, TimeUnit.SECONDS);
 		if (service.isShutdown())
 			System.out.printf("Total count: %d", counter);
